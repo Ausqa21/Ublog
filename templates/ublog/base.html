@@ -1,0 +1,63 @@
+<!doctype html>
+
+{% load staticfiles %}
+
+<html>
+  <head>
+  	<title>Ublog</title>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ublog.css' %}">
+    <script src="https://use.fontawesome.com/d0804d625e.js"></script>
+  </head>
+  <body>
+    <!--<div class="page-header">
+    	<a href="{% url 'post_new' %}" class="top-menu"><button class="btn btn-secondary">Add new post</button></a>
+    	<h1 style="display: inline;"><a href="{% url 'post_list' %}">Welcome to Ublog</a></h1>
+    </div>-->
+    <section class="container-fluid sticky-top">
+      <div class="row">
+        <div class="col-sm-12">
+          <nav class="navbar navbar-light bg-faded" style="background-color: firebrick;">
+            <span>
+              <a class="navbar-brand" href="{% url 'post_list' %}"><h3>Ublog</h3></a>
+              {% block add_new %}<a href="{% url 'post_new' %}"><button class="btn btn-secondary float-right my-2 my-sm-0">Add post</button></a>{% endblock %}
+            </span>
+          </nav>
+        </div>
+      </div>
+    </section>
+    
+    <section class="container">
+    	<div class="row my-3">
+        <div class="col-md-3 col-sm-4">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ut incidunt rem itaque perferendis officia esse, minima aspernatur, velit ratione? Sunt consequuntur id aspernatur, quam eius voluptate, exercitationem ipsam rem!
+        </div>
+        {% block content %}
+        {% endblock %}
+      </div>
+    </section>
+    {% block footer %}
+    <footer class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 pt-3">
+          <i>Ublog&copy;2017</i>
+          <ul class="list-inline float-right align-bottom">
+            <a href="#">
+              <li id="list1" class="list-inline-item">Facebook</li>
+            </a>
+            <a href="#">
+              <li id="list2" class="list-inline-item align-bottom">Twitter</li>
+            </a>
+            <a href="#">
+              <li class="list-inline-item align-bottom">Google+</li>
+            </a>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    {% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+  </body>
+</html>
